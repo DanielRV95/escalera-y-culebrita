@@ -14,10 +14,10 @@ public class escuchador implements ActionListener {
 	
 	
 	
-		 gamer d;
-		 int rno,x1,y1;
-		  int pc1,pc2;
-		  int w;
+		 gamer d;   //se llama la clase gamer y es llamado como variable d
+		 int rno,x1,y1;  //rno es el que va hacedes a los turnos del juego x1,y1 es para las cordenadas de la ficha
+		  int jugador1,jugador2;
+		  int inicio;
 		 Rectangle r=new Rectangle();
 		 double y,z;
 
@@ -48,9 +48,9 @@ public class escuchador implements ActionListener {
 			  { d.partida[1].setBounds(140,650,20,52);
 			    d.partida[2].setBounds(70,650,20,52);
 			    d.cantidad_dado.setText(" ");
-			    pc1=0;
-			    w=0;
-			    pc2=0;
+			    jugador1=0;
+			    inicio=0;
+			    jugador2=0;
 
 			  }
 			  else if(e.getSource()==d.turnos)
@@ -76,17 +76,17 @@ public class escuchador implements ActionListener {
 
 	//*********************************  esto si el bucle es para el jugador 1  w es el número y este bucle solo funciona cuando w es par aún el número par es para el jugador1
 	//*********************************   y pc1 contiene todos los movimientos movidos por player1 ******************************************
-	if(w%2==0)
+	if(inicio%2==0)
 	  {d.turnos.setText("Player 2 turno");
 
 
-		  w++;
+		  inicio++;
 
-	          if((pc1+rno)<101)                                 // verificando si el valor del jugador 1 no excede más de 100 mientras se juega
+	          if((jugador1+rno)<101)                                 // verificando si el valor del jugador 1 no excede más de 100 mientras se juega
 	          {
 				  //********* Aquí agregaremos el movimiento del jugador 1 y cambiaremos su posición de acuerdo con los dados (rno) **********
-				  pc1=pc1+rno;
-	            r=d.tablero[pc1].getBounds();
+				  jugador1=jugador1+rno;
+	            r=d.tablero[jugador1].getBounds();
 			   y=r.getX();
 				z=r.getY();
 				 x1=(int)Math.round(y);
@@ -105,14 +105,14 @@ public class escuchador implements ActionListener {
 
 				for(int i=0;i<8;i++)
 				{
-				if(pc1==a[i])
+				if(jugador1==a[i])
 				{  r=d.tablero[b[i]].getBounds();
 					  y=r.getX();
 					  z=r.getY();
 					   x1=(int)Math.round(y);
 					   y1=(int)Math.round(z);
 					  d.partida[1].setBounds((x1+10),(y1+17),20,52);
-					  pc1=b[i];
+					  jugador1=b[i];
 
 				 }
 			    }
@@ -122,14 +122,14 @@ public class escuchador implements ActionListener {
 				int f[]=new int[]{25,46,49,63,69,81,92};
 			    for(int i=0;i<7;i++)
 				{
-				if(pc1==c[i])
+				if(jugador1==c[i])
 			    {  r=d.tablero[f[i]].getBounds();
 				   y=r.getX();
 				   z=r.getY();
 				   x1=(int)Math.round(y);
 				   y1=(int)Math.round(z);
 				  d.partida[1].setBounds((x1+10),(y1+16),20,52);
-				  pc1=f[i];
+				  jugador1=f[i];
 
 				 }
 			    }
@@ -142,11 +142,11 @@ public class escuchador implements ActionListener {
 	else
 	   {d.turnos.setText("Player 1 turno");
 
-		   w++;
+		   inicio++;
 
-	          if((pc2+rno)<101)
-	          {pc2=pc2+rno;
-	          r=d.tablero[pc2].getBounds();
+	          if((jugador2+rno)<101)
+	          {jugador2=jugador2+rno;
+	          r=d.tablero[jugador2].getBounds();
 			   y=r.getX();
 			   z=r.getY();
 				 x1=(int)Math.round(y);
@@ -159,14 +159,14 @@ public class escuchador implements ActionListener {
 
 				for(int i=0;i<8;i++)
 				{
-				if(pc2==a[i])
+				if(jugador2==a[i])
 				{  r=d.tablero[b[i]].getBounds();
 					  y=r.getX();
 					  z=r.getY();
 					   x1=(int)Math.round(y);
 					   y1=(int)Math.round(z);
 					  d.partida[2].setBounds((x1+30),(y1+17),20,52);
-					  pc2=b[i];
+					  jugador2=b[i];
 
 				 }
 			    }
@@ -174,14 +174,14 @@ public class escuchador implements ActionListener {
 				int f[]=new int[]{25,46,49,63,69,81,92};
 			    for(int i=0;i<7;i++)
 				{
-				if(pc2==c[i])
+				if(jugador2==c[i])
 			    {  r=d.tablero[f[i]].getBounds();
 				   y=r.getX();
 				   z=r.getY();
 				   x1=(int)Math.round(y);
 				   y1=(int)Math.round(z);
 				  d.partida[2].setBounds((x1+30),(y1+16),20,52);
-				  pc2=f[i];
+				  jugador2=f[i];
 
 				 }
 			    }
@@ -190,9 +190,9 @@ public class escuchador implements ActionListener {
 
 	}
 	}
-	if(pc1==100)
+	if(jugador1==100)
 	    d.turnos.setText("Player 1 gana");
-	 else if(pc2==100)
+	 else if(jugador2==100)
 	     d.turnos.setText("Player 2 gana");
 	}
 	}
