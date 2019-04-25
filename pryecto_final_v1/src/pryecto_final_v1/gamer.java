@@ -305,10 +305,7 @@ public class gamer {
 
 
 
-		public static void main(String []s)
-		{
-			new gamer();
-		}
+	
 	}
 	//********************** clase oyente  ************************
 
