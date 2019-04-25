@@ -9,11 +9,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class escuchador {
-	class Listener implements ActionListener
+public class escuchador implements ActionListener {
 	
-	{
-		gamer juego = new gamer();
+	
+	
+	
 		 gamer d;
 		 int rno,x1,y1;
 		  int pc1,pc2;
@@ -24,7 +24,7 @@ public class escuchador {
 
 
 
-		 Listener(gamer d)
+		 escuchador(gamer d)
 		 {
 			  this.d=d;
 		  }
@@ -34,7 +34,7 @@ public class escuchador {
 			  Random generator = new Random();
 			  rno = generator.nextInt(6) + 1;                // guarda el numer aleatorio
 
-			 d.miImagen.setText(String.valueOf(rno));
+			 d.cantidad_dado.setText(String.valueOf(rno));
 
 			 d.dado1.setVisible(true);
 
@@ -47,13 +47,13 @@ public class escuchador {
 			  if(e.getSource()==d.reset)
 			  { d.partida[1].setBounds(140,650,20,52);
 			    d.partida[2].setBounds(70,650,20,52);
-			    d.miImagen.setText(" ");
+			    d.cantidad_dado.setText(" ");
 			    pc1=0;
 			    w=0;
 			    pc2=0;
 
 			  }
-			  else if(e.getSource()==d.au)
+			  else if(e.getSource()==d.turnos)
 			  {
 				  JFrame jn=new JFrame("informacion");
 				  jn.setBounds(20,20,900,562);
@@ -66,7 +66,7 @@ public class escuchador {
 				  		a4.setIcon(new ImageIcon(".//acerca.jpg"));
 			jn.add(a4);
 			  }
-	             else if(e.getSource()==d.b1)
+	             else if(e.getSource()==d.boton_dado)
 	             {
 
 				     randomNumber();
@@ -77,7 +77,7 @@ public class escuchador {
 	//*********************************  esto si el bucle es para el jugador 1  w es el número y este bucle solo funciona cuando w es par aún el número par es para el jugador1
 	//*********************************   y pc1 contiene todos los movimientos movidos por player1 ******************************************
 	if(w%2==0)
-	  {d.screen.setText("Player 2 turno");
+	  {d.turnos.setText("Player 2 turno");
 
 
 		  w++;
@@ -140,7 +140,7 @@ public class escuchador {
 	//*****************este bucle es para el jugador 2 si w es impar, entonces player2 se mueve a la siguiente posición y pc2 contiene todos los movimientos del jugador 2 y todos los
 	 //****************  El resto de las condiciones es igual que el bucle anterior. **********************
 	else
-	   {d.screen.setText("Player 1 turno");
+	   {d.turnos.setText("Player 1 turno");
 
 		   w++;
 
@@ -191,11 +191,11 @@ public class escuchador {
 	}
 	}
 	if(pc1==100)
-	    d.screen.setText("Player 1 gana");
+	    d.turnos.setText("Player 1 gana");
 	 else if(pc2==100)
-	     d.screen.setText("Player 2 gana");
+	     d.turnos.setText("Player 2 gana");
 	}
 	}
 	}
 
-}
+
