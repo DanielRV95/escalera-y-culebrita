@@ -36,7 +36,7 @@ public class escuchador {
 
 			 d.miImagen.setText(String.valueOf(rno));
 
-			 d.a3.setVisible(true);
+			 d.dado1.setVisible(true);
 
 
 
@@ -45,8 +45,8 @@ public class escuchador {
 		  public void actionPerformed(ActionEvent e)
 		  {
 			  if(e.getSource()==d.reset)
-			  { d.m[1].setBounds(140,650,20,52);
-			    d.m[2].setBounds(70,650,20,52);
+			  { d.partida[1].setBounds(140,650,20,52);
+			    d.partida[2].setBounds(70,650,20,52);
 			    d.miImagen.setText(" ");
 			    pc1=0;
 			    w=0;
@@ -86,12 +86,12 @@ public class escuchador {
 	          {
 				  //********* Aquí agregaremos el movimiento del jugador 1 y cambiaremos su posición de acuerdo con los dados (rno) **********
 				  pc1=pc1+rno;
-	            r=d.l[pc1].getBounds();
+	            r=d.tablero[pc1].getBounds();
 			   y=r.getX();
 				z=r.getY();
 				 x1=(int)Math.round(y);
 				 y1=(int)Math.round(z);
-				d.m[1].setBounds((x1+10),(y1+20),54,52);
+				d.partida[1].setBounds((x1+10),(y1+20),54,52);
 
 
 
@@ -106,12 +106,12 @@ public class escuchador {
 				for(int i=0;i<8;i++)
 				{
 				if(pc1==a[i])
-				{  r=d.l[b[i]].getBounds();
+				{  r=d.tablero[b[i]].getBounds();
 					  y=r.getX();
 					  z=r.getY();
 					   x1=(int)Math.round(y);
 					   y1=(int)Math.round(z);
-					  d.m[1].setBounds((x1+10),(y1+17),20,52);
+					  d.partida[1].setBounds((x1+10),(y1+17),20,52);
 					  pc1=b[i];
 
 				 }
@@ -123,12 +123,12 @@ public class escuchador {
 			    for(int i=0;i<7;i++)
 				{
 				if(pc1==c[i])
-			    {  r=d.l[f[i]].getBounds();
+			    {  r=d.tablero[f[i]].getBounds();
 				   y=r.getX();
 				   z=r.getY();
 				   x1=(int)Math.round(y);
 				   y1=(int)Math.round(z);
-				  d.m[1].setBounds((x1+10),(y1+16),20,52);
+				  d.partida[1].setBounds((x1+10),(y1+16),20,52);
 				  pc1=f[i];
 
 				 }
@@ -146,12 +146,12 @@ public class escuchador {
 
 	          if((pc2+rno)<101)
 	          {pc2=pc2+rno;
-	          r=d.l[pc2].getBounds();
+	          r=d.tablero[pc2].getBounds();
 			   y=r.getX();
 			   z=r.getY();
 				 x1=(int)Math.round(y);
 				 y1=(int)Math.round(z);
-			  d.m[2].setBounds((x1+30),(y1+20),20,52);
+			  d.partida[2].setBounds((x1+30),(y1+20),20,52);
 
 
 				int a[]=new int[]{27,40,43,54,66,76,89,99};
@@ -160,12 +160,12 @@ public class escuchador {
 				for(int i=0;i<8;i++)
 				{
 				if(pc2==a[i])
-				{  r=d.l[b[i]].getBounds();
+				{  r=d.tablero[b[i]].getBounds();
 					  y=r.getX();
 					  z=r.getY();
 					   x1=(int)Math.round(y);
 					   y1=(int)Math.round(z);
-					  d.m[2].setBounds((x1+30),(y1+17),20,52);
+					  d.partida[2].setBounds((x1+30),(y1+17),20,52);
 					  pc2=b[i];
 
 				 }
@@ -175,12 +175,12 @@ public class escuchador {
 			    for(int i=0;i<7;i++)
 				{
 				if(pc2==c[i])
-			    {  r=d.l[f[i]].getBounds();
+			    {  r=d.tablero[f[i]].getBounds();
 				   y=r.getX();
 				   z=r.getY();
 				   x1=(int)Math.round(y);
 				   y1=(int)Math.round(z);
-				  d.m[2].setBounds((x1+30),(y1+16),20,52);
+				  d.partida[2].setBounds((x1+30),(y1+16),20,52);
 				  pc2=f[i];
 
 				 }
